@@ -1,0 +1,23 @@
+Search Form
+	Text Input Field
+		Name, ID
+
+	Rank - Multiple Allowed
+		E, D, C, B, A, S
+
+	Tribe - Multiple Allowed
+		Brave, Mysterious, Tough, Charming, Heartful, Shady, Eerie, Slippery, Boss
+
+	Yokai Type - 1 only
+		Standard
+		Fusion
+		Evolution
+		
+	Treat - 1 only
+		
+Results
+	Sort By
+		ID, Name
+
+	Group By
+		Tribe, Rank, Treat

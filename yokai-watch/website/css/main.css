@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background-image: url('../res/images/backgrounds/texture_background_from_wildwood.png');
+}
+
+.container-fluid {
+    width: 30%;
+    padding: 3%;
+}
+
+#wrapper {
+    position: relative;
+    z-index: 1;
+
+    /*
+    background-image: url('../res/images/backgrounds/start_background_01.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    */
+    
+
+    box-shadow: -5px -5px 15px grey;
+
+    /*just for debugging*/
+    background-color: purple;
+}
+
+#canvas-particles {
+  position: absolute;
+  z-index: 0;
+}
+
+/*---- FORM ----*/
+#form-container {
+    /*just for debugging*/
+    background-color: blueviolet;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 30%;
+}
+
+form {
+    width: 75%;
+    margin: 0 auto;
+    
+    /*just for debugging*/
+    /*background-color: turquoise;*/
+    padding: 10%;
+}
+
+input[type=text] {
+    width: 30%;
+    transition: width .6s ease-in-out;
+    padding: 4%;
+    box-shadow: 2px 2px 10px deeppink;
+}
+
+input[type=text]:focus {
+    width: 60%;
+}
+
+/*---- TRIBE ICONS ---- */
+#tribe-icons-container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.tribe-icon {
+    max-width: 15%;
+}
+
+.tribe-icon:active {
+    margin-bottom: -5px;
+}
+
+.greyscale {
+    filter: grayscale(100%);
+}
+
+#rank-icons-container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.rank-icon {
+    max-width: 15%;
+}
+
+.rank-icon:active {
+
+}

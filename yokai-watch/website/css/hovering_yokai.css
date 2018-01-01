@@ -1,0 +1,19 @@
+img[src="./res/images/search_yokai.png"] {
+    max-height: 35%;
+    max-width: 35%;
+    animation: myAnimation 2s infinite;
+}
+
+@keyframes myAnimation {
+    0% {
+        transform: translate3d(0, 0, 0);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: translate3d(0, 10px, 0);
+        animation-timing-function: ease-out
+    }
+
+    100% { transform: translate3d(0, 0, 0) }
+}
