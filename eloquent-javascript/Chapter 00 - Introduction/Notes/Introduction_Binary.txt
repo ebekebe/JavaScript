@@ -1,0 +1,111 @@
+Original from book:
+00110001 00000000 00000000
+00110001 00000001 00000001
+00110011 00000001 00000010
+01010001 00001011 00000010
+00100010 00000010 00001000
+01000011 00000001 00000000
+01000001 00000001 00000001
+00010000 00000010 00000000
+01100010 00000000 00000000
+
+I can't read binary and didn't want to use a converter so I wrote it out like this to get some practice converting it manually, hopefully I didn't mess it up.
+
+0	0	1	1	0	0	0	1	| 49
+0	0	0	0	0	0	0	0	| 0
+0	0	0	0	0	0	0	0	| 0
+--------------------
+0	0	1	1	0	0	0	1	| 49
+0	0	0	0	0	0	0	1	| 1
+0	0	0	0	0	0	0	1	| 1
+--------------------
+0	0	1	1	0	0	1	1	| 51
+0	0	0	0	0	0	0	1	| 1
+0	0	0	0	0	0	1	0	| 2
+--------------------
+0	1	0	1	0	0	0	1	| 81
+0	0	0	0	1	0	1	1	| 11
+0	0	0	0	0	0	1	0	| 2
+--------------------
+0	0	1	0	0	0	1	0	| 34
+0	0	0	0	0	0	1	0	| 2
+0	0	0	0	1	0	0	0	| 8
+--------------------
+0	1	0	0	0	0	1	1	| 67
+0	0	0	0	0	0	0	1	| 1
+0	0	0	0	0	0	0	0	| 0
+--------------------
+0	1	0	0	0	0	0	1	| 65
+0	0	0	0	0	0	0	1	| 1
+0	0	0	0	0	0	0	1	| 1
+--------------------
+0	0	0	1	0	0	0	0	| 16
+0	0	0	0	0	0	1	0	| 2
+0	0	0	0	0	0	0	0	| 0
+--------------------
+0	1	1	0	0	0	1	0	| 97
+0	0	0	0	0	0	0	0	| 0
+0	0	0	0	0	0	0	0	| 0
+
+This is the "translated" table from binary (base 2) to decimal (base 10)
+
+49, 0, 0
+49, 1, 1
+51, 1, 2
+81, 11, 2
+34, 2, 8
+67, 1, 0
+65, 1, 1
+16, 2, 0
+97, 0, 0
+
+The book says:
+"That is a program to add the numbers from 1 to 10 together and print out the result: 1 + 2 + ... + 10 = 55"
+
+I don't know how to translate that into readable instructions but presumably each byte is mapped to an instruction of some kind, probably the first byte.
+
+A little further down in the book is:
+1. Store the number 0 in memory location 0.
+2. Store the number 1 in memory location 1.
+3. Store the value of memory location 1 in memory location 2.
+4. Subtract the number 11 from the value in memory location 2.
+5. If the value in memory location 2 is the number 0,
+   continue with instruction 9.
+6. Add the value of memory location 1 to memory location 0.
+7. Add the number 1 to the value of memory location 1.
+8. Continue with instruction 3.
+9. Output the value of memory location 0.
+
+So I think I understand the format of the translated table now:
+
+Instruction / Opcode, Arg1, Arg2
+-----------------------------------------------------------------
+49 = STORENUMBER
+  Stores a number (arg 1) into a memory location (arg 2)
+81 = SUBTRACT
+  Subtracts a number (arg 1) from memory location (arg 2)
+67 = ADDMEMVALUE
+  Adds two values from two memory locations together
+65 = ADDNUMBER
+  Adds a number (arg 1) to a memory location value (arg 2)
+51 = STOREMEMVALUE
+  Stores memory location value (arg 1) into a different memory location (arg 2)
+34 = ISMEMZERO
+  Checks if (arg 1) is equal to 0, if it is then runs instruction number (arg 2)
+16 = GOTO
+  Runs a specified instruction (arg 1), no idea what arg2 is for
+97 = PRINT
+  Outputs something, not sure how arguments could be working
+---------------------------------------------------------------------------------------------------------
+
+So if those guesses are anything close to correct the table look like this:
+
+1. STORENUMBER(0, 0)
+2. STORENUMBER(1, 1)
+3. STOREMEMVALUE(1, 2)
+4. SUBTRACT(11, 2)
+5. ISMEMZERO(2, 8)
+6. ADDMEMVALUE(1, 0)
+7. ADDNUMBER(1, 1)
+8. GOTO(2, 0)
+9. PRINT(0, 0)
