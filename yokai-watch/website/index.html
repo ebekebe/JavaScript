@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Yokai Buddy</title>
+        
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/hovering_yokai.css">
+        <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/particle-effect.js"></script>
+    </head>
+    <body>      
+        <div class="container-fluid">
+            <div id="wrapper" class="row">
+                <canvas id="canvas-particles"></canvas>
+                <div id="form-container" >
+                    <form action="" class="col-md-12">
+                        <img class="yokai" class="col-md-3" src="./res/images/search_yokai.png" alt="Whisper. Your Yokai Butler!">
+                        <input type="text" name="search" maxlength="20" placeholder="Search">       
+                        <div id="tribe-icons-container">
+                            <img class="tribe-icon" title="Brave"      src="./res/images/icons/tribes/brave.png"      />
+                            <img class="tribe-icon" title="Charming"   src="./res/images/icons/tribes/charming.png"   />
+                            <img class="tribe-icon" title="Eerie"      src="./res/images/icons/tribes/eerie.png"      />
+                            <img class="tribe-icon" title="Heartful"   src="./res/images/icons/tribes/heartful.png"   />
+                            <img class="tribe-icon" title="Mysterious" src="./res/images/icons/tribes/mysterious.png" />
+                            <img class="tribe-icon" title="Slippery"   src="./res/images/icons/tribes/slippery.png"   />
+                            <img class="tribe-icon" title="Tough"      src="./res/images/icons/tribes/tough.png"      />
+                            <img class="tribe-icon" title="Shady"      src="./res/images/icons/tribes/shady.png"      />
+                            <img class="tribe-icon" title="Boss"       src="./res/images/icons/tribes/boss.png"       />
+                        </div>
+
+                        <div id="rank-icons-container">
+                            <img class="rank-icon" title="S" src="./res/images/icons/ranks/S.png" />
+                            <img class="rank-icon" title="A" src="./res/images/icons/ranks/A.png" />
+                            <img class="rank-icon" title="B" src="./res/images/icons/ranks/B.png" />
+                            <img class="rank-icon" title="C" src="./res/images/icons/ranks/C.png" />
+                            <img class="rank-icon" title="D" src="./res/images/icons/ranks/D.png" />
+                            <img class="rank-icon" title="E" src="./res/images/icons/ranks/E.png" />
+                        </div>
+
+                        <button id="btn-submit" class="btn btn-block">Submit</button>
+                    </form>
+                    <label id="lbl-results" for="results"></label>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
