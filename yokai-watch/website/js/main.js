@@ -136,6 +136,17 @@ $(document).ready(function(){
             .forEach(y => results.push(y));
         }        
         
+        // ===================SCRAPE IMAGES======================
+        
+
+        console.log($.ajax({
+            url: 'http://yokaiwatch.wikia.com/wiki/Jibanyan',
+            dataType: 'json',
+            method: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            crossDomain: true
+        }));
+
         print(results);
         lbl_results.textContent = format(results);
         query = {
