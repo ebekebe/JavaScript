@@ -17,7 +17,7 @@ function arenaSweep() {
         arena.unshift(row);
         ++y;
         
-        playerDrop.score += rowCount * 10;
+        player.score += rowCount * 10;
         rowCount *= 2;
     }
 }
@@ -151,6 +151,7 @@ function playerReset() {
         updateScore();
     }
 }
+
 function playerRotate(dir) {
     const pos = player.pos.x;
     let offset = 1;
@@ -249,4 +250,3 @@ document.addEventListener('keydown', event => {
 playerReset();
 updateScore();
 update();
-
