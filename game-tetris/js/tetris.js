@@ -241,7 +241,7 @@ document.addEventListener('keydown', event => {
         case 81:
             playerRotate(-1);
             break;
-        case 87:
+        case 69:
             playerRotate(1);
             break;
     }
