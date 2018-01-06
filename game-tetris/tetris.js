@@ -11,6 +11,17 @@ const matrix = [
     [0, 1, 0]
 ];
 
+function collide(arena, player) {
+    const [m, o] = [player.matrix, player.pos];
+    for (let y = 0; y < matrix.length; ++y) {
+        for (let x = 0; x < m[y].length; ++x) {
+            if (m[y][x] !== 0 && (arena[y + o.y] && arena[y + o.y][x + o.x]) !== 0) {
+                return true;
+            }
+        }
+    }
+}
+
 function createMatrix(w, h) {
     const matrix = [];
     while (h--) {
@@ -23,6 +34,7 @@ function draw() {
     context.fillStyle = '#000';
     context.fillRect(0, 0, canvas.width, canvas.height);
 
+    drawMatrix(arena, {x: 0, y: 0});
     drawMatrix(player.matrix, player.pos);
 }
 
@@ -53,7 +65,46 @@ function merge(arena, player) {
 
 function playerDrop() {
     player.pos.y++;
+    if(collide(arena, player)) {
+        player.pos.y--;
+        merge(arena, player);
+        player.pos.y = 0;
+    }
     dropCounter = 0;
+}
+
+function playerMove(dir) {
+    player.pos.x += dir;
+    if (collide(arena, player)) {
+        player.pos.x -= dir;
+    }
+}
+
+function playerRotate(dir) {
+    rotate(player.matrix, dir);
+    while (collide(arena, matrix)) {
+        
+    }
+}
+
+function rotate(matrix, dir) {
+    for (let y = 0; y < matrix.length; ++y) {
+        for (let x = 0; x < y; ++x) {
+            [
+                matrix[x][y],
+                matrix[y][x]
+            ] = [
+                matrix[y][x],
+                matrix[x][y]
+            ];
+        }
+    }
+
+    if (dir > 0) {
+        matrix.forEach(row => row.reverse());
+    } else {
+        matrix.reverse();
+    }
 }
 
 let dropCounter = 0;
@@ -83,18 +134,20 @@ const player = {
 document.addEventListener('keydown', event => {
     switch(event.keyCode) {
         case 37: 
-            player.pos.x--;
+            playerMove(-1);
             break;
         case 39: 
-            player.pos.x++;
+            playerMove(1);
             break;
         case 40: 
             playerDrop();
             break;
-
-    }
-    if (event.keyCode === 37 ) {
-        player.pos.x--;
+        case 81:
+            playerRotate(-1);
+            break;
+        case 87:
+            playerRotate(1);
+            break;
     }
 });
 
