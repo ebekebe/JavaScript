@@ -1,6 +1,15 @@
-$('form').on('submit', e => {
-    e.preventDefault();
+let x = $('form');
+console.log(x);
 
+let y = $('#form-test')
+console.log(y);
+
+x.on('submit', e => formAction(e));
+y.on('submit', e => formAction(e));
+
+function formAction(event) {
+    event.preventDefault();
+    
     let types = ('input[type=text]')
         .val()
         .replace(' ', '')
@@ -11,4 +20,4 @@ $('form').on('submit', e => {
     let trainerTypes = types.map(type => {
         console.log(type);
     });
-});
+}
