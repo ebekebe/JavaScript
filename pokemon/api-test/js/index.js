@@ -1,8 +1,5 @@
 let x = $('form');
-console.log(x);
-
 let y = $('#form-test')
-console.log(y);
 
 x.on('submit', e => formAction(e));
 y.on('submit', e => formAction(e));
