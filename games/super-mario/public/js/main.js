@@ -16,7 +16,13 @@ loadImage('img/tiles.png').then(image => {
     
     for(let x = 0; x < 25; x++) {
         for(let y = 0; y < 14; ++y) {
-            sprites.draw('sky', context, x * 16, y * 16);
+            sprites.drawTile('sky', context, x, y);
+        }
+    }
+
+    for(let x = 0; x < 25; x++) {
+        for(let y = 12; y < 14; ++y) {
+            sprites.drawTile('ground', context, x, y);
         }
     }
 });
