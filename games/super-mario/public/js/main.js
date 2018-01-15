@@ -2,7 +2,7 @@ import SpriteSheet from './SpriteSheet.js';
 import {loadImage, loadLevel} from './loaders.js';
 
 
-const canvas = document.getElementById('screen');
+const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
 function drawBackground(background, context, sprites) {
