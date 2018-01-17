@@ -61,14 +61,13 @@ $(document).ready(function(){
 
         let tempSearch = $('input')[0].value;
         
-        if(tempSearch){
+        if (tempSearch) {
             searchTerm = tempSearch;
         }
 
-        if(parseInt(searchTerm)){
+        if (parseInt(searchTerm)) {
             query.id = parseInt(searchTerm);
-        }
-        else{
+        } else {
             query.name = searchTerm;
         }
         query.allowed_tribes = selectedTribes;
