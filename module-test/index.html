@@ -1,35 +1,14 @@
 <!DOCTYPE html>
 <head>
     <title>Module Test</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="./js/index.js"></script>
-    <script>
-        let test_location = new Location(53.412549, -3.089660);
-        test_location.get().then(console.log);
-      
-        let test_tide = new Tide(test_location)
-        test_tide.get().then(console.log);
-
-        // google.charts.load('current', {'packages':['corechart']});
-        // google.charts.setOnLoadCallback(drawChart);
-            
-        // function drawChart(data) {
-        //     let d = new google.visualization.DataTable();
-        //     d.addColumn('string', 'Time');
-        //     d.addColumn('number', 'Height');
-        //     d.addRows(data);
-        
-        //     let options = { 'title': 'Tidal Activity', 'width': 640, 'height': 360 };
-        
-        //     let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-        //     chart.draw(d, options);
-        // }
-        // drawChart(test_tide);
-    </script>
+    <script src="./js/helpers.js"></script>
+    <script src="./js/class/API.js"></script>
+    <script src="./js/class/Location.js"></script>
+    <script src="./js/class/Tide.js"></script>
+    <script src="./js/main.js"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 <body>
-    <div id="chart_div"></div>
+    <div id="container"></div>
 </body>

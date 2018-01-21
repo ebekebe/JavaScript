@@ -1,0 +1,18 @@
+// FOR DRAWING CHART IN JS
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart(data) {
+    let d = new google.visualization.DataTable();
+    d.addColumn('string', 'Time');
+    d.addColumn('number', 'Height');
+    d.addRows(data);
+
+    let options = { 'title': 'Tidal Activity', 'width': 640, 'height': 360 };
+
+    let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(d, options);
+}
+drawChart(test_tide);
